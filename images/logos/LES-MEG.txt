@@ -1,9 +1,0 @@
-Legg logoene i denne mappen med nøyaktig disse filnavnene:
-
-nordic-council-of-ministers.png
-we-do-democracy.png
-sitra.png
-socentral.png
-
-PNG med gjennomsiktig bakgrunn fungerer best. Logoene vises på hvit bakgrunn. Høyden på hver logo styres i assets/style.css, slik at de ser like store ut.
-Mangler en fil, viser siden navnet i en stiplet boks i stedet.
