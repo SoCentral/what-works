@@ -6,7 +6,7 @@ Kampanjeside for det nordiske prosjektet "What works? Mapping, testing and scali
 - **Finansiert av:** Nordisk ministerråd
 - **Initiert av:** Nordic Deliberation Partnership
 - **Språk på siden:** engelsk
-- **Design:** følger designguiden for Demokratisk Impact (Snild, august 2025)
+- **Design:** What works-designet (Schibsted Grotesk, blå/rød palett). Kun seksjonen "Democratic impact" følger designguiden for Demokratisk Impact (Snild, august 2025)
 
 ---
 
@@ -18,10 +18,10 @@ Kampanjeside for det nordiske prosjektet "What works? Mapping, testing and scali
 | `index.html` | All tekst på siden. Hver seksjon er merket med en kommentar | Ved tekstendringer |
 | `assets/style.css` | Hele designet: farger, skrift, avstander, mobilvisning | Sjelden |
 | `assets/main.js` | Democratic Impact-modellen, menylinjen, reserve for manglende logoer | Sjelden |
-| `images/favicon.svg` | Ikonet i nettleserfanen (logomerket) | Sjelden |
+| `images/favicon.svg` | Ikonet i nettleserfanen (rødt "?") | Sjelden |
 | `images/photo-group.jpg` | Bredt bilde under delingsboksen | Ved bildebytte |
 | `images/photo-youth.jpg` | Bilde i Youth-seksjonen | Ved bildebytte |
-| `images/logos/` | Logoer for Demokratisk Impact og partnerne | Ved nye partnere |
+| `images/logos/` | Logoer for partnerne (og en ubrukt kopi av Demokratisk Impact-logoen) | Ved nye partnere |
 
 ---
 
@@ -85,50 +85,55 @@ Mangler en logofil, viser siden navnet i en stiplet boks i stedet.
 
 ---
 
-## Design (Demokratisk Impact)
+## Design
 
-Designet følger designguiden for Demokratisk Impact, utviklet av Snild for We Do Democracy og TrygFonden (august 2025).
+Siden har to designlag:
 
-### Logo
+1. **What works-designet** gjelder hele siden. Variablene står øverst i `assets/style.css` (`:root`).
+2. **Demokratisk Impact-designet** gjelder **kun** seksjonen `#impact`. Stilen står samlet nederst i `assets/style.css`, under overskriften `DEMOCRATIC IMPACT-SEKSJONEN`.
 
-- Demokratisk Impact-logoen ligger **inline** i menyen i `index.html`, slik at den kan skifte farge: brun på lys bakgrunn og lys i mørk modus. Den bruker `fill="currentColor"`.
-- Samme logo ligger som egen fil i `images/logos/demokratisk-impact.svg`.
-- Faviconet er laget av logomerket (de to buene) på grå bakgrunn.
-- Ifølge guiden kan merket og navnetrekket brukes hver for seg.
+### What works-designet (hele siden)
 
-### Skrift
-
-- **Plus Jakarta Sans**, Regular (400) og Italic, lastes fra Google Fonts.
-- Vekt 500 brukes på knapper og små etiketter.
-- Reserveskrift er Arial, som guiden også oppgir som systemskrift.
-- Klassen `.mono` finnes fortsatt i koden for små etiketter, men bruker nå samme skrift som resten.
-
-### Farger
-
-Alle farger styres av variabler øverst i `assets/style.css` (`:root`).
+- **Navn i menyen:** Teksten "What Works", uten logo (`<a class="brand">` i `index.html`).
+- **Skrift:** Schibsted Grotesk til overskrifter og brødtekst, IBM Plex Mono til små etiketter.
+- **Farger:**
 
 | Rolle | Variabel | HEX |
 |---|---|---|
-| Primær - mørk brun (tekst, mørke flater) | `--brown` | `#3f382d` |
-| Primær - lysegrønn (delingsboks, aksenter på mørk bakgrunn) | `--green` | `#dafdbb` |
-| Primær - lys grå (bakgrunn) | `--grey` | `#e5e8e3` |
-| Grå tint | `--grey-2` / `--grey-3` | `#eef0ec` / `#f5f6f3` |
-| Sekundær - lilla (individnivå) | `--lilac` | `#e4d3de` |
-| Sekundær - gull (prosessnivå) | `--gold` | `#b5935e` |
+| Bakgrunn | `--ground` | `#e8eff1` |
+| Tekst | `--ink` | `#0e2438` |
+| Blå aksent | `--accent` | `#1f5fa0` |
+| Himmelblå | `--sky` | `#88d4ff` |
+| Rød | `--berry` | `#d94f45` |
 
-Mørk modus har egne verdier i de to `dark`-blokkene rett under `:root`.
+- Mørk modus har egne verdier i de to `dark`-blokkene rett under `:root`.
 
-**Kontrast:** Lysegrønn og gull har for svak kontrast mot lys bakgrunn til å brukes som tekstfarge. Bruk dem på flater, prikker og grafikk, og bruk brun tekst oppå.
+### Demokratisk Impact-designet (kun seksjonen "Democratic impact")
 
-### Grafiske elementer
+Designet følger designguiden for Demokratisk Impact, utviklet av Snild for We Do Democracy og TrygFonden (august 2025).
 
-- **Ringene** (videreutvikling av logomerket) står i delingsboksen. De er tegnet som inline SVG i `index.html` (`class="rings"`) og tar farge fra `color` i CSS.
-- **Sirkler** brukes som markører i "How it works" (grønn, lilla, gull, brun).
-- **Rette hjørner** på kort, bilder og seksjoner, som i guidens layouter. Runde former brukes bare på knapper, merkelapper og prikker.
+**Skrift:** Plus Jakarta Sans i Regular og Italic, lastet fra Google Fonts. Skriften brukes også på etikettene i seksjonen.
 
-### Democratic Impact-modellen
+**Farger:** Seksjonen bruker en lys variant. Variablene er definert lokalt på `.impact`.
 
-Fargene følger guidens infografikk:
+| Rolle | Variabel | HEX |
+|---|---|---|
+| Bakgrunn (guidens lyseste grå tint) | `--di-bg` | `#f5f6f3` |
+| Detaljboks (lys grå, primærfarge) | `--di-panel` | `#e5e8e3` |
+| Overskrifter og streker (brun) | `--di-brown` | `#3f382d` |
+| Brødtekst | `--di-brown-2` | `#5a5246` |
+| Små etiketter | `--di-brown-3` | `#6b6355` |
+| Kantlinje | `--di-line` | `#d5d8d1` |
+
+Den lilla og den grønne nivåstreken er gjort litt mørkere (`#cfb3c6` og `#a9e07a`), slik at de synes på den lyse bakgrunnen. Seksjonen er lys også når resten av siden vises i mørk modus.
+
+**Andre elementer i seksjonen:**
+
+- Demokratisk Impact-logoen står inline over modellkreditten (`class="di-logo"`). Den tegnes i brunt.
+- Ringene fra guiden ligger svakt i bakgrunnen (`class="di-rings"`, brune, ca. 4,5 % opasitet).
+- Seksjonen og detaljboksen har rette hjørner.
+
+**Modellen:** Fargene følger guidens infografikk.
 
 | Nivå | Farge | Segmenter (lys til mørk) |
 |---|---|---|
@@ -136,7 +141,9 @@ Fargene følger guidens infografikk:
 | System | Lysegrønn `#dafdbb` | `#eafed9`, `#dafdbb`, `#c6f59e` |
 | Process | Gull `#b5935e` | `#dcc8a6`, `#c9ad7f`, `#b5935e` |
 
-Fargene endres i `levels` og `dims` i `assets/main.js`. Modellen er utviklet av We Do Democracy med Analyse & Tal, TrygFonden og Københavns universitet, og kreditten står under modellen på siden.
+Fargene endres i `levels` og `dims` i `assets/main.js`. Modellen er utviklet av We Do Democracy med Analyse & Tal, TrygFonden og Københavns universitet.
+
+**Fjerne DI-designet igjen:** Slett blokken nederst i `style.css`, logoen (`di-sign`) og ringene (`di-rings`) i `index.html`. Sett deretter de gamle fargene tilbake i `main.js`.
 
 ---
 
@@ -159,21 +166,18 @@ Denne seksjonen beskriver hvordan siden og denne dokumentasjonen er laget.
 **Prosess:**
 
 1. **Første versjon:** Claude utformet tekst og design med prosjektsøknaden som grunnlag. Prosjektteamet gjennomgikk og godkjente innholdet.
-2. **Designtilpasning (oktober 2026):** Claude tilpasset designet til designguiden for Demokratisk Impact (PDF, Snild, 27.08.2025) og den oppgitte SVG-logoen. Følgende ble endret:
-   - skrift, fargepalett, logo og favicon
-   - ringelementet og fargene i modellen
-   - hjørneradius
-   - mørk modus
+2. **Designtilpasning (oktober 2026):** Claude tilpasset først hele siden til designguiden for Demokratisk Impact (PDF, Snild, 27.08.2025). Etter ønske fra prosjektteamet ble dette reversert. Siden fikk tilbake det opprinnelige What works-designet, og guiden ble brukt **kun** på seksjonen "Democratic impact":
+   - skrift og farger
+   - logo og ringelementet
+   - fargene i modellen
    
-   Selve teksten på siden ble ikke endret, bortsett fra AI-merknaden nederst.
-3. **Kontroll:** Endringene ble testet med automatiske skjermbilder på desktop (1280 px), mobil (390 px) og i mørk modus. Testen sjekket også at siden ikke får vannrett scrolling. En feil der pilen i delingsboksen ble usynlig i mørk modus, ble rettet. Fonten og bildene ble ikke lastet i testmiljøet, så den publiserte siden bør kontrolleres visuelt.
+   Seksjonen fikk deretter lys bakgrunn fra guiden i stedet for brun, slik at den passer bedre med resten av siden. Merkevaren i menyen ble endret til ren tekst, "What Works". Teksten på siden ble ikke endret, bortsett fra AI-merknaden nederst.
+3. **Kontroll:** Endringene ble testet med automatiske skjermbilder på desktop (1280 px), mobil (390 px) og i mørk modus. Testen sjekket også at siden ikke får vannrett scrolling. Fonten og bildene ble ikke lastet i testmiljøet, så den publiserte siden bør kontrolleres visuelt.
 4. **Dokumentasjon:** Denne README-filen er skrevet av Claude ut fra en gjennomgang av alle filene på siden.
 
 **Tolkninger Claude gjorde der guiden ikke var entydig:**
 
-- Guiden har ingen eksempler på knapper. Knappene er derfor beholdt med runde ender (som en sirkel-referanse) og en lysegrønn pil.
-- Guiden har ikke definert noen mørk modus. Fargene for mørk modus er avledet fra paletten.
 - Fargetonene i modellen er lysere og mørkere varianter av guidens farger. De er ikke definert i guiden.
-- Menyen viser Demokratisk Impact-logoen i stedet for den tidligere "? What works"-merkevaren.
+- Demokratisk Impact-logoen og ringene ble lagt inn i seksjonen for å knytte modellen til avsenderen. Begge kan fjernes uten at noe annet påvirkes.
 
 **Ansvar:** KI-generert innhold og design skal gjennomgås av prosjektteamet før det deles videre. På selve siden står en merknad om KI-bruken under "About this page" i bunnteksten.
