@@ -39,7 +39,7 @@ window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
 // --- Democratic Impact-modellen ---
 // Dimensjonene og innholdet står i listen "dims" under. Endre tekstene der ved behov.
-// Farger følger designguiden: individ = lilla, system = lysegrønn, prosess = gull.
+// Farger følger designguiden for Demokratisk Impact: individ = lilla, system = lysegrønn, prosess = gull.
 (function(){
   const svg = document.getElementById("model"); if (!svg) return;
   const ns = "http://www.w3.org/2000/svg", C = 250, R0 = 128, R1 = 200, RG = 216, RL = 232;
