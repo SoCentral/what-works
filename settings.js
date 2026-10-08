@@ -9,7 +9,7 @@ window.SITE = {
   // Lenken til Google-skjemaet for å dele metoder.
   // Så lenge denne er tom, står det "The form opens soon" ved knappen.
   // Eksempel: formUrl: "https://forms.gle/abc123",
-  formUrl: "",
+  formUrl: "https://tally.so/r/68XNeY",
 
   // Teksten som vises mens skjemaet ikke er klart.
   formPendingText: "The form opens soon",
